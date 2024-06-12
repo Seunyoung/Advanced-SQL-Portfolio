@@ -219,4 +219,10 @@ where years = 2019
 group by countries
 order by Profit desc
 
+--- What year had the highest profit
+select years, sum(profit)
+from dbo.Brew_Data
+group by years
+
+
 
