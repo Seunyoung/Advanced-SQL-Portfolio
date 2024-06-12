@@ -211,3 +211,12 @@ VALUES
 (11145, 'Andrews', 'andy@gmail.com', 'budweiser', 250, 500, 816, 408000, 204000, 'Senegal', 'Southeast', 'January', 2019),
 (11146, 'Jones', 'jone.ai@yahoo.com', 'castle lite', 180, 450, 939, 422550, 253530, 'Ghana', 'west', 'February', 2017),
 (11147, 'Morgan', 'morganny@gmail.com', 'eagle lager', 170, 250, 935, 233750, 74800, 'Nigeria', 'southsouth', 'March', 2019);
+
+-- Countries with the highest profit in 2019
+select countries, Sum(profit) Profit
+from dbo.Brew_Data
+where years = 2019
+group by countries
+order by Profit desc
+
+
