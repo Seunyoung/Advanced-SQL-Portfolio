@@ -224,5 +224,20 @@ select years, sum(profit)
 from dbo.Brew_Data
 group by years
 
+--- Which month in the 3 years had the least profit
+select Months, 
+Years, 
+Sum(profit) Profit
+from dbo.Brew_Data
+Group by Months, Years
+order by Profit asc 
+
+-- minimum december 2018 profit
+select sales_id, months, profit
+from dbo.Brew_data
+where years=2018 
+and months = 'December'
+order by profit asc
+
 
 
