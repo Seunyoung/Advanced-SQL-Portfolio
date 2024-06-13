@@ -293,7 +293,7 @@ and Brands like 'Budweiser'
 group by countries,region, brands
 order by Quantity desc
 
--- Countries with the highest consumption of Beer using cte to aggregate beer  quantity sold per country )
+-- Countries Beer consumption using cte to aggregate beer  quantity sold per country )
 with cte_consumption as 
 (select countries, sum(quantity) QuantitySold
 from dbo.Brew_Data
@@ -304,13 +304,4 @@ from cte_consumption
 group by countries
 
 
-Sales Personnel With The Most Revenue
 
-select sales_rep from 
-
-(select Sales_Rep, sum(cost) revenue
-from dbo.Brew_Data
-where countries like 'senegal'
-and brands like 'budweiser'
-group by Sales_Rep
-) personnel
