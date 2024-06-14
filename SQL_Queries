@@ -303,5 +303,22 @@ select Max(Quantitysold)
 from cte_consumption
 group by countries
 
+--Beer Sales Performance in 2019 
+select months, 
+(select avg(cost) from dbo.Brew_Data where years=2019 ) AvgRevenue2019,
+sum(cost) Revenue, 
+case
+    when sum(cost) <=2500000 Then 'Low'
+    when sum(cost) between 2500000 and 4000000 Then 'Good'
+    when sum(cost) between 4000000 and 6000000 Then 'Target'
+    when sum(cost) >6000000 Then 'Above Target'
+    End as SalesPerformance
+from dbo.Brew_Data
+where years = 2019
+group by Months
+order by 3 desc
+
+
+
 
 
