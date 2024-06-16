@@ -318,6 +318,20 @@ where years = 2019
 group by Months
 order by 3 desc
 
+----top 3 profit generating brand for each year
+
+with b_p as 
+(
+select brands,years, sum(profit) as profit
+   from dbo.Brew_Data
+   group by brands, years
+ )
+   select top 3 brands, years, profit
+   from b_p
+   
+
+
+
 
 
 
